@@ -1,5 +1,6 @@
 const db = require("../models");
 const Tutorial = db.tutorials;
+const Category = db.categories;
 const Op = db.Sequelize.Op;
 
 // Create and Save a new Tutorial
@@ -16,7 +17,8 @@ exports.create = (req, res) => {
   const tutorial = {
     title: req.body.title,
     description: req.body.description,
-    published: req.body.published ? req.body.published : false
+    published: req.body.published ? req.body.published : false,
+    categoryId: req.body.categoryId
   };
 
   // Save Tutorial in the database
@@ -150,3 +152,29 @@ exports.findAllPublished = (req, res) => {
       });
     });
 };
+
+// Get the comments for a given tutorial
+exports.findCategoryById = (categoryId) => {
+  return Category.findByPk(categoryId, { include: ["tutorials"] })
+    .then((category) => {
+      return category;
+    })
+    .catch((err) => {
+      console.log(">> Error while finding tutorial: ", err);
+    });
+};
+
+// Get all Tutorials include comments
+exports.findAllCategories = (req, res) => {
+  Category.findAll({
+    include: ["tutorials"],
+  }).then((categories) => {
+    res.send(categories);
+  }).catch(err => {
+    res.status(500).send({
+      message:
+        err.message || "Some error occurred while retrieving categories."
+    });
+  });
+};
+
