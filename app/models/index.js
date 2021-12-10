@@ -18,7 +18,7 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.tutorials = require("./tutorial.model.js")(sequelize, Sequelize);
+db.products = require("./product.model.js")(sequelize, Sequelize);
 db.categories = require("../models/category.model.js")(sequelize, Sequelize);
 
 db.user = require("../models/user.model.js")(sequelize, Sequelize);
@@ -35,8 +35,8 @@ db.user.belongsToMany(db.role, {
   otherKey: "roleId"
 });
 
-db.categories.hasMany(db.tutorials , {as : "tutorials"});
-db.tutorials.belongsTo(db.categories, {
+db.categories.hasMany(db.products , {as : "products"});
+db.products.belongsTo(db.categories, {
   foreignKey: "categoryId",
   as: "category"
 });

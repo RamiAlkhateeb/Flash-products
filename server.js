@@ -30,11 +30,11 @@ db.sequelize.sync();
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+  res.json({ message: "Welcome to Rami application." });
 });
 
-require("./app/routes/turorial.routes")(app);
-
+require("./app/routes/product.routes")(app);
+require("./app/routes/category.routes")(app);
 require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
 
