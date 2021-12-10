@@ -75,3 +75,7 @@ npm install
 sequelize db:seed:all
 node server.js
 ```
+### Postman collection 
+```
+https://www.getpostman.com/collections/c1ab8ce64ff0472fb0bb
+```
