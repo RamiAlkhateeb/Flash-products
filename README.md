@@ -18,13 +18,16 @@ can have a product “House” with a custom field called “House Fields” and
 this field has a list of key values such as “Type” => “Apartment”, “Rooms”=> 5
 etc
 <br />
+<br />
 Products are also categorized under categories. Categories are created as
 a seed to the db and will not be added using the API.
+<br />
 <br />
 Only authenticated users can add or delete a product card, deleting a
 card deletes all its associated custom fields. Authentication is done using
 JWT in the header. User accounts can be seeded to the db as well and not
 managed in the system.
+<br />
 <br />
 You can decide the best way to let the backend know which language you
 want the data to be in, the returned data will be in that selected language.
@@ -32,7 +35,9 @@ You must take in mind topics like security and proper error handling. Also,
 consider including a postman collection for your API as part of your
 submission.
 <br />
+<br />
 Technology
+<br />
 You must use an SQL db behind an ORM of your choice. We prefer
 postgres and sequelize.
 <br />
@@ -40,15 +45,25 @@ You must submit your work as a git repo, docker must be used for all
 project dependencies.
 <br />
 APIs:
+<br />
 POST auth/login
+<br />
 POST /products
+<br />
 GET /products
+<br />
 GET /products/:productId
+<br />
 PUT /products/:productId
+<br />
 DELETE /products/:poductId
+<br />
 GET /categories
+<br />
 GET /categories/:categoryId/products
+<br />
 DELETE /categories/:categoryId
+
 
 ## Project setup
 ```
