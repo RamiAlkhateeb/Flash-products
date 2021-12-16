@@ -45,7 +45,7 @@ exports.findAll = (req, res) => {
   var columns 
   if(lang == 'ar')
   {
-    columns = "id,arabic_name, start_date, duration,price,'custom_fields'"
+    columns = "id,arabic_name, start_date, duration,price,custom_fields"
     //attributes = ['id','arabicName', 'start_date', 'duration','price','custom_fields']
   }else if(lang == 'en'){
     columns = "id,english_name, start_date, duration,price,custom_fields"
